@@ -33,9 +33,10 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 switch response.result {
                     
                 case .success(let value):
+                    print(response.description)
                     let json = JSON(value)
                     let items = json["items"]
-                    items["name"].array?.forEach({ (user) in
+                    items[].array?.forEach({ (user) in
                         let user = UserModel(name: user["name"].stringValue, language: user["language"].stringValue)
                     self.usersData.append(user)
                     })
